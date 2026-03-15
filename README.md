@@ -201,47 +201,7 @@ I'm not associated with the original RNNoise work and do NOT have any understand
 
 ## Contributing
 
-External dependencies are vendored via [git-subrepo](https://github.com/ingydotnet/git-subrepo). So that there is no need to use submodules, and patching subrepos is easy (at the moment we have several patches for JUCE).
-
-Improvements are welcomed! Though if you want to contribute anything sizeable - open an issue first.
-
-### Compiling
-
-Compiling for x64:
-```sh
-cmake -Bbuild-x64 -H. -GNinja -DCMAKE_BUILD_TYPE=Release
-ninja -C build-x64
-```
-
-Compiling for x32:
-```sh
-cmake -D CMAKE_CXX_FLAGS=-m32 -D CMAKE_C_FLAGS=-m32 -Bbuild-x32 -H. -GNinja -DCMAKE_BUILD_TYPE=Release
-ninja -C build-x32
-```
-
-Cross-compiling for Windows x64 (MinGW builds are failing at the moment due to certain incompatibilities in JUCE):
-```sh
-cmake -Bbuild-mingw64 -H. -GNinja -DCMAKE_TOOLCHAIN_FILE=toolchains/toolchain-mingw64.cmake -DCMAKE_BUILD_TYPE=Release
-ninja -C build-mingw64
-```
-
-#### Compiling only selected plugins
-
-By default, all plugins supported for a platform are being built.
-You can deliberately turn off plugins with the following CMake flags:
-
-- `BUILD_LADSPA_PLUGIN`
-- `BUILD_VST_PLUGIN`
-- `BUILD_VST3_PLUGIN`
-- `BUILD_LV2_PLUGIN`
-- `BUILD_AU_PLUGIN` (macOS only)
-- `BUILD_AUV3_PLUGIN` (macOS only)
-
-For example:
-
-```sh
-cmake -DBUILD_VST_PLUGIN=OFF -DBUILD_LV2_PLUGIN=OFF
-```
+Improvements are welcomed! See [CONTRIBUTING.md](CONTRIBUTING.md) for full instructions on how to **build**, **test**, and **deploy** the project.
 
 ## License
 
